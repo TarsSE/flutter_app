@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/Echo.dart';
 
 void main() => runApp(MyApp());
 
@@ -152,17 +153,18 @@ class TipRoute extends StatelessWidget{
   TipRoute({Key key,@required this.text,}):super(key:key);
 }
 
+//****************路由测试跳转页*******************//
 class RouterTestRouter extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) =>Center(
     child: RaisedButton(
       onPressed: () async {
-        var result=await Navigator.push(
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context)=>TipRoute(text: "我是提示"))
+          MaterialPageRoute(builder: (context)=>Echo(text: "我是提示"))
         );
-        print("路由返回值：$result");
+        // print("路由返回值：$result");
       },
       child: Text("打开提示页"),
     ),
